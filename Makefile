@@ -196,7 +196,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a amcstubs.a amcstubsD.a card.a cardD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a amcstubs.a amcstubsD.a axart.a axartD.a card.a cardD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -257,6 +257,10 @@ amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
 amcstubs_c_files := $(wildcard src/amcstubs/*.c)
 amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
 amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
+
+axart_c_files := $(wildcard src/axart/*.c)
+axart.a  : $(addprefix $(BUILD_DIR)/release/,$(axart_c_files:.c=.o))
+axartD.a : $(addprefix $(BUILD_DIR)/debug/,$(axart_c_files:.c=.o))
 
 card_c_files := $(wildcard src/card/*.c)
 card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))

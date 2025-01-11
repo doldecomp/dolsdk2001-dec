@@ -18,7 +18,7 @@ Currently this repository supports building the following libraries:
 | amcstubs     | :heavy_check_mark: |
 | ar           | :x: |
 | ax           | :x: |
-| axart        | :x: |
+| axart        | :heavy_check_mark: |
 | axfx         | :x: |
 | base         | :x: |
 | card         | :heavy_check_mark: |
