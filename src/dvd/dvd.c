@@ -324,19 +324,17 @@ static void cbForUnrecoveredErrorRetry(u32 intType)
 {
 	if (intType == 0x10) {
 		executing->state = -1;
-#ifdef DEBUG
-		DVDReset();
-#else
         stateTimeout();
-#endif
 	} else {
         executing->state = -1;
 
         if ((intType & 2) != 0) {
-#ifndef DEBUG
+#ifdef DEBUG
+            stateError(0x01234567);
+#else
             __DVDStoreErrorCode(0x01234567);
-#endif
             DVDLowStopMotor(cbForStateError);
+#endif
             return;
         }
 
